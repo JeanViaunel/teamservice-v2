@@ -14,37 +14,26 @@ export default function Home() {
   console.log(transactions);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="text-foreground bg-background flex  flex-col items-center justify-between">
       <SignedIn>
-        <Button>
-          <SignOutButton>Sign out</SignOutButton>
-        </Button>
-      </SignedIn>
-      <SignedOut>
-        <Button>
-          <SignInButton mode="modal">Sign In</SignInButton>
-        </Button>
-      </SignedOut>
-
-      <UserButton />
-
-      <div className="grid gap-4">
-        {transactions?.map((item) => (
-          <Card key={item._id}>
-            {/* <CardHeader>
+        <div className="grid gap-4">
+          {transactions?.map((item) => (
+            <Card key={item._id}>
+              {/* <CardHeader>
               <CardTitle>Transaction Details</CardTitle>
             </CardHeader> */}
-            <CardContent>
-              <p>
-                <strong>Sender:</strong> {item.sender}
-              </p>
-              <p>
-                <strong>Receiver:</strong> {item.receiver}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+              <CardContent>
+                <p>
+                  <strong>Sender:</strong> {item.sender}
+                </p>
+                <p>
+                  <strong>Receiver:</strong> {item.receiver}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </SignedIn>
       <Button
         onClick={() => newTransaction({ sender: "Victor", receiver: "Shelly" })}
       >
